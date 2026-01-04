@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Viewer</title>
+    <link rel="stylesheet" href="/dist/css/styles.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body class="bg-cream-50 text-slate-900 selection:bg-gold-500/30">
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white z-50 border-b border-slate-100">
+        <div class="max-w-[1600px] mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <h1 class="text-xl font-bold text-slate-900 tracking-tight">Quran Viewer</h1>
+            </div>
+            <div class="flex items-center gap-2 text-slate-400">
+                <span class="text-xs font-sans">Press</span>
+                <kbd class="px-2 py-1 bg-slate-50 border border-slate-200 text-slate-500 rounded text-[10px] font-sans font-bold uppercase tracking-wider shadow-sm">F</kbd>
+                <span class="text-xs font-sans">to search</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex h-screen pt-[61px]">
+        <!-- Surah Drawer -->
+        <aside class="surah-drawer w-48 bg-white border-r border-cream-200 flex-shrink-0 flex flex-col items-center">
+            <div class="w-full flex flex-col items-center pt-6 pb-4 bg-white border-b border-slate-100 mb-2">
+                <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Surah</div>
+            </div>
+            <div id="surah-list" class="flex-1 w-full overflow-y-auto no-scrollbar flex flex-col items-start gap-1 px-4 pb-6"></div>
+        </aside>
+
+        <!-- Verse Drawer -->
+        <aside class="verse-drawer w-16 bg-cream-50/50 border-r border-cream-200 flex-shrink-0 flex flex-col items-center">
+            <div class="w-full flex flex-col items-center pt-6 pb-4 bg-cream-50 border-b border-cream-200 mb-2">
+                <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Ayah</div>
+            </div>
+            <div id="verse-list" class="flex-1 w-full overflow-y-auto no-scrollbar flex flex-col items-center gap-2 px-2 pb-6"></div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content flex-1 overflow-y-auto bg-white relative" id="main-content" dir="ltr">
+            <div id="quran-content" class="max-w-3xl mx-auto px-8 py-12 relative z-10" dir="rtl">
+                <!-- Content will be injected here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] hidden items-center justify-center">
+        <div class="w-full max-w-xl px-4">
+            <div class="bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Search Surah:Ayah (e.g. 5:16)" 
+                        class="w-full px-6 py-5 text-lg outline-none text-slate-800 placeholder:text-slate-400 font-sans"
+                        autocomplete="off"
+                    >
+                    <div class="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                        <kbd class="px-2 py-1 bg-slate-100 text-slate-400 rounded text-[10px] font-sans font-bold uppercase tracking-wider">Esc</kbd>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 text-center">
+                <p class="text-white/70 text-sm font-sans">Type Surah:Ayah and press <span class="font-bold text-white">Enter</span> to jump</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/dist/js/app.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;600;800&display=swap');
+
+:root {
+    --gold-primary: #B8860B;
+    --cream-light: #FDF8E8;
+}
+
+body {
+    font-family: 'Noto Sans Arabic', 'Amiri', serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.quran-text {
+    font-family: 'Amiri', serif;
+    line-height: 2.8;
+}
+
+.verse-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.verse-item:hover {
+    background-color: rgba(184, 134, 11, 0.03);
+}
+
+.verse-item.active-verse {
+    background-color: rgba(184, 134, 11, 0.06);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.main-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: #E5D5B0;
+    border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: #D4C49A;
+}
+
+.surah-card {
+    background: white;
+}
+
+#search-overlay.active {
+    display: flex;
+}
+
+#search-overlay {
+    transition: opacity 0.2s ease-out;
+}
