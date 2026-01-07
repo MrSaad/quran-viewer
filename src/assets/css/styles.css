@@ -16,7 +16,13 @@ body {
 
 .quran-text {
     font-family: 'Amiri', serif;
-    line-height: 2.8;
+    line-height: 2.0;
+}
+
+@media (min-width: 640px) {
+    .quran-text {
+        line-height: 2.8;
+    }
 }
 
 .verse-item {

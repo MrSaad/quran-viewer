@@ -56,11 +56,11 @@ function initSurahDrawer() {
         container.append(`
             <button
                 id="surah-btn-${i}"
-                class="w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-slate-50 group relative"
+                class="w-full flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 rounded-lg transition-all duration-200 hover:bg-slate-50 group relative"
                 data-surah="${i}"
             >
-                <span class="text-[10px] text-slate-400 min-w-[20px]">${i}</span>
-                <span class="text-sm text-slate-600 group-hover:text-gold-600 transition-colors font-medium text-left truncate flex-1">${surahNamesEnglish[i-1]}</span>
+                <span class="text-[10px] sm:text-xs text-slate-400 min-w-[18px] sm:min-w-[20px] text-center sm:text-left">${i}</span>
+                <span class="hidden sm:block text-sm text-slate-600 group-hover:text-gold-600 transition-colors font-medium text-left truncate flex-1">${surahNamesEnglish[i-1]}</span>
                 <div class="absolute left-0 w-1 h-0 bg-gold-500 rounded-full transition-all duration-300 group-[.active]:h-6"></div>
             </button>
         `);
@@ -76,7 +76,7 @@ function updateVerseDrawer(surahNum) {
         container.append(`
             <button
                 id="verse-btn-${surahNum}-${i}"
-                class="w-10 h-10 flex items-center justify-center text-xs rounded-lg transition-all duration-200 hover:bg-white hover:shadow-sm text-slate-500 hover:text-gold-600 relative group"
+                class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-[10px] sm:text-xs rounded-lg transition-all duration-200 hover:bg-white hover:shadow-sm text-slate-500 hover:text-gold-600 relative group"
                 data-surah="${surahNum}"
                 data-verse="${i}"
             >
@@ -136,9 +136,9 @@ function renderQuran(text) {
             if (surah !== currentSurahInRender) {
                 currentSurahInRender = surah;
                 container.append(`
-                    <div id="surah-${surah}" class="surah-header pt-16 pb-10 first:pt-4 text-center">
-                        <h2 class="text-4xl font-bold text-slate-800 mb-2 font-['Noto_Sans_Arabic']">${surahNames[surah-1]}</h2>
-                        <div class="text-slate-500 text-lg">${surahNamesEnglish[surah-1]}</div>
+                    <div id="surah-${surah}" class="surah-header pt-12 sm:pt-16 pb-8 sm:pb-10 first:pt-4 text-center">
+                        <h2 class="text-2xl sm:text-4xl font-bold text-slate-800 mb-2 font-['Noto_Sans_Arabic']">${surahNames[surah-1]}</h2>
+                        <div class="text-slate-400 text-sm sm:text-lg">${surahNamesEnglish[surah-1]}</div>
                     </div>
                 `);
             }
@@ -147,17 +147,17 @@ function renderQuran(text) {
             container.append(`
                 <div
                     id="verse-${surah}-${verse}"
-                    class="verse-item group flex gap-8 py-6 px-6 rounded-2xl"
+                    class="verse-item group flex gap-2 sm:gap-8 py-3 sm:py-6 px-1 sm:px-6 rounded-2xl"
                     data-surah="${surah}"
                     data-verse="${verse}"
                 >
-                    <div class="flex-shrink-0 pt-2">
-                        <div class="w-14 h-10 flex items-center justify-center text-slate-300 group-hover:text-gold-500 transition-colors font-sans text-xs font-bold">
+                    <div class="flex-shrink-0 pt-1">
+                        <div class="w-10 sm:w-14 h-8 sm:h-10 flex items-center justify-center text-slate-300 group-hover:text-gold-500 transition-colors font-sans text-[9px] sm:text-xs font-bold">
                             ${surah}:${verse}
                         </div>
                     </div>
                     <div class="flex-grow">
-                        <p class="quran-text text-3xl text-slate-800 leading-[2.5] text-right" dir="rtl">${text}</p>
+                        <p class="quran-text text-lg sm:text-3xl text-slate-800 leading-[2.0] sm:leading-[2.5] text-right" dir="rtl">${text}</p>
                     </div>
                 </div>
             `);
@@ -251,6 +251,8 @@ function setupSearch() {
         overlay.addClass('hidden').removeClass('active flex');
         input.val('');
     };
+
+    $('#mobile-search-trigger').on('click', openSearch);
 
     const performSearch = () => {
         const query = input.val().trim();
