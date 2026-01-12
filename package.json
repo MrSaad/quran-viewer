@@ -7,7 +7,7 @@
     "build:js": "esbuild src/assets/js/app.js --bundle --minify --outfile=dist/js/app.min.js",
     "build:css": "postcss src/assets/css/styles.css -o dist/css/styles.min.css",
     "build": "npm run build:js && npm run build:css",
-    "dev": "nodemon --watch src --watch server.js --ext js,css,html --exec \"npm run build && node server.js\"",
+    "dev": "PORT=3000 nodemon --watch src --watch server.js --ext js,css,html --exec \"npm run build && node server.js\"",
     "start": "node server.js"
   },
   "dependencies": {
